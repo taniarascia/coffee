@@ -3,16 +3,13 @@ var myMap = L.map('map');
 var coffeeCup = L.icon({
   iconUrl: './images/coffee.png',
   shadowUrl: '',
-
-  iconSize: [35, 65] // size of the icon
-
+  iconSize: [35, 65]
 });
 
 var myBasemap = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
   attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
   maxZoom: 16
 });
-
 
 myBasemap.addTo(myMap);
 
