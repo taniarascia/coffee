@@ -1,0 +1,54 @@
+html {
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  line-height: 1.6;
+  color: #484848;
+  position: relative;
+}
+
+#map {
+  height: 100vh;
+  width: 100%;
+}
+
+.title {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  z-index: 99999;
+}
+
+h1,
+h2 {
+  font-family: "Patrick Hand SC", sans-serif;
+  margin: 0;
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.title p {
+  font-family: "Just Another Hand", sans-serif;
+  font-size: 2rem;
+  margin-top: 0;
+  font-weight: 400;
+}
+
+.leaflet-popup-content p {
+  font-family: "Open Sans Condensed", sans-serif;
+  font-size: 1.1rem;
+  margin-top: 0;
+  margin-bottom: .2rem;
+  font-weight: 400;
+}
