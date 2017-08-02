@@ -1,0 +1,137 @@
+{
+  "cafes": [{
+      "name": "El Meson",
+      "lat": 42.002439,
+      "long": -87.672339,
+      "neighborhood": "Rogers Park",
+      "ambiance": "4/5",
+      "flavor": "5/5",
+      "comments": "Best cappuccino and croissant I've ever had. Place is rather small, so working there when it's empty is awkward."
+    }, {
+      "name": "Satellite Cafe",
+      "lat": 41.961898,
+      "long": -87.654172,
+      "neighborhood": "Uptown",
+      "ambiance": "1/5",
+      "flavor": "1/5",
+      "comments": "Tiny, small menu, mediocre coffee. Sister location Maiden Voyage is good."
+    },
+    {
+      "name": "Everybody's Coffee",
+      "lat": 41.965053,
+      "long": -87.653876,
+      "neighborhood": "Uptown",
+      "ambiance": "4/5",
+      "flavor": "3/5",
+      "comments": "Good place to get work done. Busy enough and big enough. Coffee is fine."
+    },
+    {
+      "name": "Metropolis Cafe",
+      "lat": 41.994363,
+      "long": -87.657267,
+      "neighborhood": "Edgewater",
+      "ambiance": "3/5",
+      "flavor": "2/5",
+      "comments": "Metropolis brand coffee is the pride of Chicago, apparently. I hate it. This place takes Wi-Fi away after like an hour, as well. So in addition to not having enjoyable coffee, it's not a good place to work. The ambiance is otherwise nice, but it's always overly crowded. Mexican hot cocoa is good."
+    },
+    {
+      "name": "Wormhole",
+      "lat": 41.908415,
+      "long": -87.674605,
+      "neighborhood": "Wicker Park",
+      "ambiance": "5/5",
+      "flavor": "4/5",
+      "comments": "Cute ambiance with a Nintendo that actually works properly and the best games (including FF1!). I don't actually remember what the coffee tastes like."
+    },
+    {
+      "name": "Ipsento",
+      "lat": 41.918639,
+      "long": -87.687247,
+      "neighborhood": "Bucktown",
+      "ambiance": "4/5",
+      "flavor": "5/5",
+      "comments": "Really great spicy latte. Nice ambiance but a bit small."
+    },
+    {
+      "name": "Two Hearted Queen",
+      "lat": 41.943305,
+      "long": -87.659280,
+      "neighborhood": "Uptown",
+      "ambiance": "3/5",
+      "flavor": "3/5",
+      "comments": "I'm giving this place threes all around because I don't remember anything about it."
+    },
+    {
+      "name": "Zanzibar",
+      "lat": 41.983792,
+      "long": -87.656773,
+      "neighborhood": "Edgewater",
+      "ambiance": "2/5",
+      "flavor": "2/5",
+      "comments": "This place is always weird. I just avoid it."
+    },
+    {
+      "name": "Kopi Travelers Cafe",
+      "lat": 41.978614,
+      "long": -87.668150,
+      "neighborhood": "Andersonville",
+      "ambiance": "5/5",
+      "flavor": "5/5",
+      "comments": "Really great ambiance, with pillows and a shop for travelers, including all sorts of guidebooks and bangles. They also have beer and mixed drinks. Haven't gone here to work yet."
+    },
+    {
+      "name": "Oromo Cafe",
+      "lat": 41.966873,
+      "long": -87.687116,
+      "neighborhood": "Lincoln Square",
+      "ambiance": "4/5",
+      "flavor": "3/5",
+      "comments": "Nice little coffee shop in the heart of Lincoln Square. Not much food here."
+    },
+    {
+      "name": "La Colombe",
+      "lat": 41.976049,
+      "long": -87.668537,
+      "neighborhood": "Andersonville",
+      "ambiance": "2/5",
+      "flavor": "3/5",
+      "comments": "This place gets packed. It's an alright location to do some work. "
+    },
+    {
+      "name": "Growling Rabbit",
+      "lat": 41.990243,
+      "long": -87.660534,
+      "neighborhood": "Andersonville",
+      "ambiance": "4/5",
+      "flavor": "4/5",
+      "comments": "Good spot for brunch that had pretty good cappuccinos as well."
+    },
+    {
+      "name": "Maiden Voyage",
+      "lat": 41.961729,
+      "long": -87.670624,
+      "neighborhood": "Ravenswood",
+      "ambiance": "4/5",
+      "flavor": "4/5",
+      "comments": "Nice place to get some work done. Good sandwiches and the whole place smells like bacon. I had iced green tea."
+    },
+    {
+      "name": "Edge of Sweetness",
+      "lat": 41.991945,
+      "long": -87.660528,
+      "neighborhood": "Edgewater",
+      "ambiance": "3/5",
+      "flavor": "3/5",
+      "comments": "Cute little place, no trendy ambiance. It was nice, but they didn't have a large selection of coffee drinks."
+    },
+    {
+      "name": "The Coffee Studio",
+      "lat": 41.984294,
+      "long": -87.669108,
+      "neighborhood": "Andersonville",
+      "ambiance": "4/5",
+      "flavor": "4/5",
+      "comments": "They have alcoholic coffee drinks, which is neat. I'm a fan of specialty drinks. Nice outdoor seating area, not too much indoor room."
+    }
+  ]
+}

@@ -16,10 +16,17 @@ body {
 }
 
 .title {
-  position: absolute;
-  top: 1rem;
-  right: 2rem;
-  z-index: 99999;
+  display: none;
+}
+
+@media screen and (min-width: 800px) {
+  .title {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    z-index: 99999;
+  }
 }
 
 h1,
@@ -29,26 +36,26 @@ h2 {
   line-height: 1.1;
 }
 
+p {
+  font-family: "Open Sans Condensed", sans-serif;
+  font-size: 1.1rem;
+  margin-top: 0;
+  margin-bottom: .2rem;
+  font-weight: 400;
+}
+
 h1 {
   font-size: 3.5rem;
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin-bottom: 1rem;
 }
 
-.title p {
+.subtitle {
   font-family: "Just Another Hand", sans-serif;
   font-size: 2rem;
   margin-top: 0;
-  font-weight: 400;
-}
-
-.leaflet-popup-content p {
-  font-family: "Open Sans Condensed", sans-serif;
-  font-size: 1.1rem;
-  margin-top: 0;
-  margin-bottom: .2rem;
   font-weight: 400;
 }

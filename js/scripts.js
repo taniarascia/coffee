@@ -1,74 +1,102 @@
-var myMap = L.map('map');
+// Define map
+const myMap = L.map('map');
 
-var coffeeCup = L.icon({
-  iconUrl: './images/coffee.png',
+// Define icon
+const coffeeCup = L.icon({
+  iconUrl: 'https://taniarascia.github.io/coffee/images/coffee.png',
   shadowUrl: '',
   iconSize: [35, 65]
 });
 
-var myBasemap = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
-  attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
-  maxZoom: 16
+// Define basemap
+var myBasemap = L.tileLayer('http://korona.geog.uni-heidelberg.de/tiles/roads/x={x}&y={y}&z={z}', {
+  maxZoom: 20,
+  attribution: 'Imagery from <a href="http://giscience.uni-hd.de/">GIScience Research Group @ University of Heidelberg</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 });
 
+// Add basemap to map id
 myBasemap.addTo(myMap);
 
+// Set center of the map
 myMap.setView([41.939948, -87.650673], 12);
 
-var everybodysCoffee = L.marker([41.965053, -87.653876], {
-  icon: coffeeCup
-}).addTo(myMap);
+// Make an XMLHttpRequest to the JSON data
+const request = new XMLHttpRequest();
+request.open('GET', 'https://taniarascia.github.io/coffee/js/map.json', true);
+request.onload = function () {
+  // begin accessing JSON data here
+  const data = JSON.parse(this.response);
 
+  let cafes = data.cafes.map(function (cafe) {
+    L.marker([cafe.lat, cafe.long], {
+      icon: coffeeCup
+    }).bindPopup(`
+        <h2>${cafe.name}</h2>
+        <p><b>Neighborhood:</b> ${cafe.neighborhood}</p>
+        <p><b>Ambiance:</b> ${cafe.ambiance}</p>
+        <p><b>Flavor:</b> ${cafe.flavor}</p>
+        <p><b>Comments:</b> ${cafe.comments}</p>
+    `).openPopup().addTo(myMap);
+  });
 
-var elMeson = L.marker([42.002439, -87.672339], {
-  icon: coffeeCup
-}).bindPopup(`
-<h2>El Meson</h2>
-<p><b>Neighborhood:</b> Roger's Park</p>
-<p><b>Ambiance:</b> Great!</p>
-<p><b>Flavor:</b> Great!</p>
-`).openPopup().addTo(myMap);
+  const rogersPark = data.cafes.filter(function (cafe) {
+    // Get the length of as many responses equal a neighborhood name
+    return cafe.neighborhood === 'Rogers Park'
+  }).length;
 
-var metropolisCafe = L.marker([41.994363, -87.657267], {
-  icon: coffeeCup
-}).addTo(myMap);
+  const edgewater = data.cafes.filter(function (cafe) {
+    // Get the length of as many responses equal a neighborhood name
+    return cafe.neighborhood === 'Edgewater'
+  }).length;
 
-var wormhole = L.marker([41.908415, -87.674605], {
-  icon: coffeeCup
-}).addTo(myMap);
+  const andersonville = data.cafes.filter(function (cafe) {
+    // Get the length of as many responses equal a neighborhood name
+    return cafe.neighborhood === 'Andersonville'
+  }).length;
 
-var ipsento = L.marker([41.918639, -87.687247], {
-  icon: coffeeCup
-}).addTo(myMap);
+  const ravenswood = data.cafes.filter(function (cafe) {
+    // Get the length of as many responses equal a neighborhood name
+    return cafe.neighborhood === 'Ravenswood'
+  }).length;
 
-var twoHeartedQueen = L.marker([41.943305, -87.659280], {
-  icon: coffeeCup
-}).addTo(myMap);
+  const uptown = data.cafes.filter(function (cafe) {
+    // Get the length of as many responses equal a neighborhood name
+    return cafe.neighborhood === 'Uptown'
+  }).length;
 
-var zanzibar = L.marker([41.983792, -87.656773], {
-  icon: coffeeCup
-}).addTo(myMap);
+  const wickerPark = data.cafes.filter(function (cafe) {
+    // Get the length of as many responses equal a neighborhood name
+    return cafe.neighborhood === 'Wicker Park'
+  }).length;
 
-var kopiTravelersCafe = L.marker([41.978614, -87.668150], {
-  icon: coffeeCup
-}).addTo(myMap);
+  const bucktown = data.cafes.filter(function (cafe) {
+    // Get the length of as many responses equal a neighborhood name
+    return cafe.neighborhood === 'Bucktown'
+  }).length;
 
-var oromoCafe = L.marker([41.966873, -87.687116], {
-  icon: coffeeCup
-}).addTo(myMap);
+  console.log(rogersPark);
 
-var laColombe = L.marker([41.884110, -87.651949], {
-  icon: coffeeCup
-}).addTo(myMap);
+  var hoodsArray = [
+    "Rogers Park",
+    "Edgewater",
+    "Andersonville",
+    "Ravenswood",
+    "Uptown",
+    "Wicker Park",
+    "Bucktown",
+  ];
 
-var growlingRabbit = L.marker([41.990243, -87.660534], {
-  icon: coffeeCup
-}).addTo(myMap);
+  // Fix this later
+  // https://stackoverflow.com/questions/12712056/count-occurences-of-each-item-in-json
 
-var maidenVoyage = L.marker([41.961729, -87.670624], {
-  icon: coffeeCup
-}).addTo(myMap);
+  const title = document.getElementById('neighborhoods');
+  let p = document.createElement("p");
 
-var satelliteCafe = L.marker([41.961898, -87.654172], {
-  icon: coffeeCup
-}).addTo(myMap);
+  for (var i = 0; i < hoodsArray.length; i += 1) {
+    const p = document.createElement("p");
+    p.innerHTML = hoodsArray[i];
+    title.appendChild(p);
+  }
+}
+
+request.send();
