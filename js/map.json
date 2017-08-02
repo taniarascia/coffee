@@ -132,6 +132,15 @@
       "ambiance": "4/5",
       "flavor": "4/5",
       "comments": "They have alcoholic coffee drinks, which is neat. I'm a fan of specialty drinks. Nice outdoor seating area, not too much indoor room."
+    },
+    {
+      "name": "Emerald City Cafe",
+      "lat": 41.953764,
+      "long": -87.654807,
+      "neighborhood": "Lakeview",
+      "ambiance": "5/5",
+      "flavor": "5/5",
+      "comments": "Great flavor, a lot of specialty drinks, homemade whipped cream, amazing ambiance with games and art. Excellent all around!"
     }
   ]
 }

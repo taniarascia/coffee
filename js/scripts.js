@@ -10,8 +10,8 @@ const coffeeCup = L.icon({
 
 // Define basemap
 var myBasemap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
-	attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
-	maxZoom: 16
+  attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
+  maxZoom: 16
 });
 // Add basemap to map id
 myBasemap.addTo(myMap);
@@ -38,6 +38,8 @@ request.onload = function () {
     `).openPopup().addTo(myMap);
   });
 
+  // Is there a better way to do this?
+
   const rogersPark = data.cafes.filter(function (cafe) {
     return cafe.neighborhood === 'Rogers Park'
   }).length;
@@ -57,6 +59,10 @@ request.onload = function () {
   const uptown = data.cafes.filter(function (cafe) {
     return cafe.neighborhood === 'Uptown'
   }).length;
+  
+  const lakeview = data.cafes.filter(function (cafe) {
+    return cafe.neighborhood === 'Lakeview'
+  }).length;
 
   const wickerPark = data.cafes.filter(function (cafe) {
     return cafe.neighborhood === 'Wicker Park'
@@ -65,8 +71,6 @@ request.onload = function () {
   const bucktown = data.cafes.filter(function (cafe) {
     return cafe.neighborhood === 'Bucktown'
   }).length;
-
-  console.log(rogersPark);
 
   // Fix this later
   // https://stackoverflow.com/questions/12712056/count-occurences-of-each-item-in-json
@@ -98,6 +102,10 @@ request.onload = function () {
       number: uptown,
     },
     {
+      name: "Lakeview",
+      number: lakeview,
+    },
+    {
       name: "Bucktown",
       number: bucktown,
     },
@@ -105,6 +113,7 @@ request.onload = function () {
       name: "Wicker Park",
       number: wickerPark,
     },
+
   ];
 
   for (hoods of hoodsArray) {
