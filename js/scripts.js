@@ -59,7 +59,11 @@ request.onload = function () {
   const uptown = data.cafes.filter(function (cafe) {
     return cafe.neighborhood === 'Uptown'
   }).length;
-  
+
+  const lincolnSquare = data.cafes.filter(function (cafe) {
+    return cafe.neighborhood === 'Lincoln Square'
+  }).length;
+
   const lakeview = data.cafes.filter(function (cafe) {
     return cafe.neighborhood === 'Lakeview'
   }).length;
@@ -100,6 +104,10 @@ request.onload = function () {
     {
       name: "Uptown",
       number: uptown,
+    },
+    {
+      name: "Lincoln Square",
+      number: lincolnSquare,
     },
     {
       name: "Lakeview",
