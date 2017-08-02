@@ -9,11 +9,10 @@ const coffeeCup = L.icon({
 });
 
 // Define basemap
-var myBasemap = L.tileLayer('http://korona.geog.uni-heidelberg.de/tiles/roads/x={x}&y={y}&z={z}', {
-  maxZoom: 20,
-  attribution: 'Imagery from <a href="http://giscience.uni-hd.de/">GIScience Research Group @ University of Heidelberg</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+var myBasemap = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
+	maxZoom: 16
 });
-
 // Add basemap to map id
 myBasemap.addTo(myMap);
 
@@ -40,61 +39,78 @@ request.onload = function () {
   });
 
   const rogersPark = data.cafes.filter(function (cafe) {
-    // Get the length of as many responses equal a neighborhood name
     return cafe.neighborhood === 'Rogers Park'
   }).length;
 
   const edgewater = data.cafes.filter(function (cafe) {
-    // Get the length of as many responses equal a neighborhood name
     return cafe.neighborhood === 'Edgewater'
   }).length;
 
   const andersonville = data.cafes.filter(function (cafe) {
-    // Get the length of as many responses equal a neighborhood name
     return cafe.neighborhood === 'Andersonville'
   }).length;
 
   const ravenswood = data.cafes.filter(function (cafe) {
-    // Get the length of as many responses equal a neighborhood name
     return cafe.neighborhood === 'Ravenswood'
   }).length;
 
   const uptown = data.cafes.filter(function (cafe) {
-    // Get the length of as many responses equal a neighborhood name
     return cafe.neighborhood === 'Uptown'
   }).length;
 
   const wickerPark = data.cafes.filter(function (cafe) {
-    // Get the length of as many responses equal a neighborhood name
     return cafe.neighborhood === 'Wicker Park'
   }).length;
 
   const bucktown = data.cafes.filter(function (cafe) {
-    // Get the length of as many responses equal a neighborhood name
     return cafe.neighborhood === 'Bucktown'
   }).length;
 
   console.log(rogersPark);
 
-  var hoodsArray = [
-    "Rogers Park",
-    "Edgewater",
-    "Andersonville",
-    "Ravenswood",
-    "Uptown",
-    "Wicker Park",
-    "Bucktown",
-  ];
-
   // Fix this later
   // https://stackoverflow.com/questions/12712056/count-occurences-of-each-item-in-json
 
   const title = document.getElementById('neighborhoods');
+  let h3 = document.createElement("h3");
+  h3.innerHTML = "Neighborhood Count";
+  title.appendChild(h3);
   let p = document.createElement("p");
 
-  for (var i = 0; i < hoodsArray.length; i += 1) {
+  const hoodsArray = [{
+      name: "Rogers Park",
+      number: rogersPark,
+    },
+    {
+      name: "Edgewater",
+      number: edgewater,
+    },
+    {
+      name: "Andersonville",
+      number: andersonville,
+    },
+    {
+      name: "Ravenswood",
+      number: ravenswood,
+    },
+    {
+      name: "Uptown",
+      number: uptown,
+    },
+    {
+      name: "Bucktown",
+      number: bucktown,
+    },
+    {
+      name: "Wicker Park",
+      number: wickerPark,
+    },
+  ];
+
+  for (hoods of hoodsArray) {
     const p = document.createElement("p");
-    p.innerHTML = hoodsArray[i];
+    p.innerHTML = `<b>${hoods.name}</b> `;
+    p.innerHTML += hoods.number;
     title.appendChild(p);
   }
 }

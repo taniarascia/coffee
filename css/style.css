@@ -6,7 +6,7 @@ html {
 body {
   margin: 0;
   line-height: 1.6;
-  color: #484848;
+  color: #4B3520;
   position: relative;
 }
 
@@ -23,25 +23,54 @@ body {
   .title {
     display: block;
     position: absolute;
-    top: 1rem;
-    right: 2rem;
+    top: 0;
+    right: 0;
+    background: radial-gradient(farthest-corner at 45px 45px, #FEF0CD 0%, #F6DAAA 100%);
+    border-bottom-left-radius: 8px;
     z-index: 99999;
   }
 }
 
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: radial-gradient(farthest-corner at 45px 45px, #FEF0CD 0%, #F6DAAA 100%);
+}
+
+.title h1 {
+  text-align: center;
+  background: #A03728;
+  color: #F6DAAA;
+  padding: 1rem;
+}
+
+.title .subtitle {
+  text-align: center;
+  color: #4B3520;
+}
+
+.title p,
+.leaflet-container a.leaflet-popup-close-button {
+  color: #4B3520;
+}
+
 h1,
-h2 {
+h2,
+h3 {
   font-family: "Patrick Hand SC", sans-serif;
   margin: 0;
   line-height: 1.1;
+  color: #4B3520;
+  font-weight: 400;
 }
 
-p {
+p,
+.leaflet-popup-content p {
   font-family: "Open Sans Condensed", sans-serif;
   font-size: 1.1rem;
   margin-top: 0;
   margin-bottom: .2rem;
   font-weight: 400;
+  color: #4B3520;
 }
 
 h1 {
@@ -51,11 +80,21 @@ h1 {
 h2 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
+  color: #A03728;
+}
+
+h3 {
+  font-size: 1.75rem;
+  margin: 1.5rem 0 1rem;
+}
+
+#neighborhoods {
+  padding: 1rem;
 }
 
 .subtitle {
   font-family: "Just Another Hand", sans-serif;
   font-size: 2rem;
-  margin-top: 0;
+  margin-top: 1rem;
   font-weight: 400;
 }
