@@ -141,6 +141,15 @@
       "ambiance": "5/5",
       "flavor": "5/5",
       "comments": "Great flavor, a lot of specialty drinks, homemade whipped cream, amazing ambiance with games and art. Excellent all around!"
+    },
+    {
+      "name": "Ellipsis Cafe",
+      "lat": 41.998043,
+      "long": -87.662873,
+      "neighborhood": "Rogers Park",
+      "ambiance": "4/5",
+      "flavor": "4/5",
+      "comments": "Nice place, good ambiance, good coffee. But no AC so I'm dying right now."
     }
   ]
 }
