@@ -150,6 +150,24 @@
       "ambiance": "4/5",
       "flavor": "4/5",
       "comments": "Nice place, good ambiance, good coffee. But no AC so I'm dying right now."
+    },
+    {
+      "name": "Groundswell Coffee Roasters",
+      "lat": 41.969967,
+      "long": -87.679020,
+      "neighborhood": "Ravenswood",
+      "ambiance": "3/5",
+      "flavor": "3/5",
+      "comments": "Nice lighting and ambiance for working, but uncomfortable chair to table ratio. "
+    },
+    {
+      "name": "Colectivo",
+      "lat": 41.928663,
+      "long": 87.642550,
+      "neighborhood": "Lincoln Park",
+      "ambiance": "4/5",
+      "flavor": "4/5",
+      "comments": "Really good selection, great Matcha latte. Not much indoor seating, but firepits outside are nice."
     }
   ]
 }

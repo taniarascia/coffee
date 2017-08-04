@@ -76,6 +76,10 @@ request.onload = function () {
     return cafe.neighborhood === 'Bucktown'
   }).length;
 
+  const lincolnPark = data.cafes.filter(function (cafe) {
+    return cafe.neighborhood === 'Lincoln Park'
+  }).length;
+
   // Fix this later
   // https://stackoverflow.com/questions/12712056/count-occurences-of-each-item-in-json
 
@@ -121,7 +125,10 @@ request.onload = function () {
       name: "Wicker Park",
       number: wickerPark,
     },
-
+    {
+      name: "Lincoln Park",
+      number: lincolnPark,
+    },
   ];
 
   for (hoods of hoodsArray) {
