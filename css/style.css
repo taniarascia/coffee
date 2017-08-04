@@ -40,12 +40,8 @@ body {
   text-align: center;
   background: #A03728;
   color: #F6DAAA;
-  padding: 1rem;
-}
-
-.title .subtitle {
-  text-align: center;
-  color: #4B3520;
+  padding: 1rem 1rem 1.5rem;
+  line-height: 1;
 }
 
 .title p,
@@ -89,12 +85,5 @@ h3 {
 }
 
 #neighborhoods {
-  padding: 1rem;
-}
-
-.subtitle {
-  font-family: "Just Another Hand", sans-serif;
-  font-size: 2rem;
-  margin-top: 1rem;
-  font-weight: 400;
+  padding: 0 1rem 1rem 1rem;
 }

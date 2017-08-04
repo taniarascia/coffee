@@ -9,10 +9,11 @@ const coffeeCup = L.icon({
 });
 
 // Define basemap
-var myBasemap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
+const myBasemap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
   attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
   maxZoom: 16
 });
+
 // Add basemap to map id
 myBasemap.addTo(myMap);
 
@@ -22,11 +23,35 @@ myMap.setView([41.939948, -87.650673], 12);
 // Make an XMLHttpRequest to the JSON data
 const request = new XMLHttpRequest();
 request.open('GET', 'https://taniarascia.github.io/coffee/js/map.json', true);
+
 request.onload = function () {
   // begin accessing JSON data here
   const data = JSON.parse(this.response);
 
-  let cafes = data.cafes.map(function (cafe) {
+  // Reduce neighborhoods down to how many they are, and count them
+  let neighborhoodCount = data.cafes.reduce((sums, cafe) => {
+    sums[cafe.neighborhood] = (sums[cafe.neighborhood] || 0) + 1;
+    return sums;
+  }, {});
+
+  // Create a sidebar
+  const title = document.getElementById('neighborhoods');
+  let h3 = document.createElement("h3");
+  h3.innerHTML = "Neighborhood Count";
+  title.appendChild(h3);
+  let p = document.createElement("p");
+
+  // Print all neighborhoods in sidebar
+  for (let neighborhood in neighborhoodCount) {
+    const p = document.createElement("p");
+    p.innerHTML = `<b>${neighborhood}</b> : ${neighborhoodCount[neighborhood]}`;
+    title.appendChild(p);
+  }
+
+  // Print cafe markers
+  let cafes = data.cafes.map(cafe => {
+    console.log(cafe.name);
+
     L.marker([cafe.lat, cafe.long], {
       icon: coffeeCup
     }).bindPopup(`
@@ -37,106 +62,6 @@ request.onload = function () {
         <p><b>Comments:</b> ${cafe.comments}</p>
     `).openPopup().addTo(myMap);
   });
-
-  // Is there a better way to do this?
-
-  const rogersPark = data.cafes.filter(function (cafe) {
-    return cafe.neighborhood === 'Rogers Park'
-  }).length;
-
-  const edgewater = data.cafes.filter(function (cafe) {
-    return cafe.neighborhood === 'Edgewater'
-  }).length;
-
-  const andersonville = data.cafes.filter(function (cafe) {
-    return cafe.neighborhood === 'Andersonville'
-  }).length;
-
-  const ravenswood = data.cafes.filter(function (cafe) {
-    return cafe.neighborhood === 'Ravenswood'
-  }).length;
-
-  const uptown = data.cafes.filter(function (cafe) {
-    return cafe.neighborhood === 'Uptown'
-  }).length;
-
-  const lincolnSquare = data.cafes.filter(function (cafe) {
-    return cafe.neighborhood === 'Lincoln Square'
-  }).length;
-
-  const lakeview = data.cafes.filter(function (cafe) {
-    return cafe.neighborhood === 'Lakeview'
-  }).length;
-
-  const wickerPark = data.cafes.filter(function (cafe) {
-    return cafe.neighborhood === 'Wicker Park'
-  }).length;
-
-  const bucktown = data.cafes.filter(function (cafe) {
-    return cafe.neighborhood === 'Bucktown'
-  }).length;
-
-  const lincolnPark = data.cafes.filter(function (cafe) {
-    return cafe.neighborhood === 'Lincoln Park'
-  }).length;
-
-  // Fix this later
-  // https://stackoverflow.com/questions/12712056/count-occurences-of-each-item-in-json
-
-  const title = document.getElementById('neighborhoods');
-  let h3 = document.createElement("h3");
-  h3.innerHTML = "Neighborhood Count";
-  title.appendChild(h3);
-  let p = document.createElement("p");
-
-  const hoodsArray = [{
-      name: "Rogers Park",
-      number: rogersPark,
-    },
-    {
-      name: "Edgewater",
-      number: edgewater,
-    },
-    {
-      name: "Andersonville",
-      number: andersonville,
-    },
-    {
-      name: "Ravenswood",
-      number: ravenswood,
-    },
-    {
-      name: "Uptown",
-      number: uptown,
-    },
-    {
-      name: "Lincoln Square",
-      number: lincolnSquare,
-    },
-    {
-      name: "Lakeview",
-      number: lakeview,
-    },
-    {
-      name: "Bucktown",
-      number: bucktown,
-    },
-    {
-      name: "Wicker Park",
-      number: wickerPark,
-    },
-    {
-      name: "Lincoln Park",
-      number: lincolnPark,
-    },
-  ];
-
-  for (hoods of hoodsArray) {
-    const p = document.createElement("p");
-    p.innerHTML = `<b>${hoods.name}</b> `;
-    p.innerHTML += hoods.number;
-    title.appendChild(p);
-  }
 }
 
 request.send();
