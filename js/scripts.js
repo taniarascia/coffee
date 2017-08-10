@@ -29,17 +29,17 @@ request.onload = function () {
   const data = JSON.parse(this.response);
 
   // Reduce neighborhoods down to how many they are, and count them
-  let neighborhoodCount = data.cafes.reduce((sums, cafe) => {
+  const neighborhoodCount = data.cafes.reduce((sums, cafe) => {
     sums[cafe.neighborhood] = (sums[cafe.neighborhood] || 0) + 1;
     return sums;
   }, {});
 
   // Create a sidebar
   const title = document.getElementById('neighborhoods');
-  let h3 = document.createElement("h3");
+  const h3 = document.createElement("h3");
   h3.innerHTML = "Neighborhood Count";
   title.appendChild(h3);
-  let p = document.createElement("p");
+  const p = document.createElement("p");
 
   // Print all neighborhoods in sidebar
   for (let neighborhood in neighborhoodCount) {
@@ -49,7 +49,7 @@ request.onload = function () {
   }
 
   // Print cafe markers
-  let cafes = data.cafes.map(cafe => {
+  const cafes = data.cafes.map(cafe => {
     console.log(cafe.name);
 
     L.marker([cafe.lat, cafe.long], {
