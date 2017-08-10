@@ -37,9 +37,10 @@ request.onload = function () {
   // Create a sidebar
   const title = document.getElementById('neighborhoods');
   const h3 = document.createElement("h3");
+  const p = document.createElement("p");
+
   h3.innerHTML = "Neighborhood Count";
   title.appendChild(h3);
-  const p = document.createElement("p");
 
   // Print all neighborhoods in sidebar
   for (let neighborhood in neighborhoodCount) {
